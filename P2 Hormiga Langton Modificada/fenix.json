@@ -1,0 +1,43 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FenixTemplates/FenixTemplates/master/fenix-schema.json",
+    "author": "Óscar Pozo",
+    "repoName": "My new Fenix repository!",
+    "repoUrl": "https://example.com/master/my-template-url/",
+    "version": 1.0,
+    "templates": [
+        {
+            "id": "example-template",
+            "displayName": "Example template",
+            "language": "Fenix",
+            "img": "https://raw.githubusercontent.com/acharluk/Fenix/master/src/assets/logo.png",
+            "description": "Example template for Fenix",
+            "category": ["Other"],
+            "directories": [
+                "a-new-directory"
+            ],
+            "files": {
+                "create": [
+                    "blank.txt"
+                ],
+                "download": [
+                    {
+                        "from": "remote-file.txt",
+                        "to": "local.txt"
+                    }
+                ],
+                "open": [
+                    "blank.txt"
+                ]
+            },
+            "command": "echo Hello world!",
+            "environment": [
+                {
+                    "id": "author",
+                    "title": "Author",
+                    "description": "Óscar Pozo",
+                    "default": "Me"
+                }
+            ]
+        }
+    ]
+}
