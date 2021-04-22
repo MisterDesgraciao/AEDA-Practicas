@@ -37,7 +37,14 @@
 
 using namespace std;
 
-Quicksort::Quicksort(vector<int> vectorOrdenar) {
+template<class Clave>
+Quicksort<Clave>::Quicksort() {}
+
+template<class Clave>
+Quicksort<Clave>::~Quicksort() {}
+
+template<class Clave>
+void Quicksort<Clave>::creacion(vector<Clave> vectorOrdenar) {
   cout << "Ordenamos por Quicksort: ";
   printVector(vectorOrdenar);
   AlgoritmoQuicksort(vectorOrdenar, 0, vectorOrdenar.size() - 1);
@@ -45,16 +52,16 @@ Quicksort::Quicksort(vector<int> vectorOrdenar) {
   printVector(vectorOrdenar);
 }
 
-Quicksort::~Quicksort() {}
-
-void Quicksort::printVector(vector<int> vector) {
+template<class Clave>
+void Quicksort<Clave>::printVector(vector<Clave> vector) {
   for (int i = 0; i < vector.size(); i++) {
     cout << vector[i] << " ";
   }
   cout << endl;
 }
 
-void Quicksort::printVector(vector<int> vector, int pos1, int pos2) {
+template<class Clave>
+void Quicksort<Clave>::printVector(vector<Clave> vector, int pos1, int pos2) {
   for (int i = 0; i < vector.size(); i++) {
     if (i == pos1 || i == pos2) {
       cout << GREEN << vector[i] << RESET << " ";
@@ -65,11 +72,12 @@ void Quicksort::printVector(vector<int> vector, int pos1, int pos2) {
   cout << endl;
 }
 
-void Quicksort::AlgoritmoQuicksort(vector<int> &sec, int inicio, int final) {
+template<class Clave>
+void Quicksort<Clave>::AlgoritmoQuicksort(vector<Clave> &sec, int inicio, int final) {
   int i = inicio;
   int f = final;
   int aux = 0;
-  int pivote = sec[(final + inicio) / 2];
+  Clave pivote = sec[(final + inicio) / 2];
   cout << BLUE << "Pivote: " << pivote << RESET << endl;
   while (i <= f) {
     while (sec[i] < pivote) {
@@ -100,3 +108,5 @@ void Quicksort::AlgoritmoQuicksort(vector<int> &sec, int inicio, int final) {
     AlgoritmoQuicksort(sec, i, final);
   }
 }
+
+template class Quicksort<int>;

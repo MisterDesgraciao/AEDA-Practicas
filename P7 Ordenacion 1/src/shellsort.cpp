@@ -37,7 +37,14 @@
 
 using namespace std;
 
-Shellsort::Shellsort(vector<int> vectorOrdenar) {
+template<class Clave>
+Shellsort<Clave>::Shellsort() {}
+
+template<class Clave>
+Shellsort<Clave>::~Shellsort() {}
+
+template<class Clave>
+void Shellsort<Clave>::creacion(vector<Clave> vectorOrdenar) {
   float alfa = 0;
   cout << "Valor de Alfa (constante de reducción): [Valor entre 0 y 1]" << endl;
   cin >> alfa;
@@ -55,16 +62,16 @@ Shellsort::Shellsort(vector<int> vectorOrdenar) {
   printVector(vectorOrdenar);
 }
 
-Shellsort::~Shellsort() {}
-
-void Shellsort::printVector(vector<int> vector) {
+template<class Clave>
+void Shellsort<Clave>::printVector(vector<Clave> vector) {
   for (int i = 0; i < vector.size(); i++) {
     cout << vector[i] << " ";
   }
   cout << endl;
 }
 
-void Shellsort::printVector(vector<int> vector, int pos1, int pos2) {
+template<class Clave>
+void Shellsort<Clave>::printVector(vector<Clave> vector, int pos1, int pos2) {
   for (int i = 0; i < vector.size(); i++) {
     if (i == pos1 || i == pos2) {
       cout << GREEN << vector[i] << RESET << " ";
@@ -75,7 +82,8 @@ void Shellsort::printVector(vector<int> vector, int pos1, int pos2) {
   cout << endl;
 }
 
-void Shellsort::printVector(vector<int> vector, int pos1, int pos2, int pos3) {
+template<class Clave>
+void Shellsort<Clave>::printVector(vector<Clave> vector, int pos1, int pos2, int pos3) {
   for (int i = 0; i < vector.size(); i++) {
     if (i == pos1 || i == pos2 || i == pos3) {
       cout << GREEN << vector[i] << RESET << " ";
@@ -86,8 +94,10 @@ void Shellsort::printVector(vector<int> vector, int pos1, int pos2, int pos3) {
   cout << endl;
 }
 
-void Shellsort::deltasort(vector<int> &sec, int &delta, int &tamanoVector) {
-  int aux, j = 0;
+template<class Clave>
+void Shellsort<Clave>::deltasort(vector<Clave> &sec, int &delta, int &tamanoVector) {
+  Clave aux; 
+  int j = 0;
   for (int i = delta; i < tamanoVector; i++) {
     //printVector(sec);
     aux = sec[i];
@@ -103,3 +113,5 @@ void Shellsort::deltasort(vector<int> &sec, int &delta, int &tamanoVector) {
     usleep(2 * microsecond);  //sleeps for 2 seconds
   }
 }
+
+template class Shellsort<int>;

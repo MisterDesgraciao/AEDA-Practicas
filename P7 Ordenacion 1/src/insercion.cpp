@@ -37,10 +37,19 @@
 
 using namespace std;
 
-Insercion::Insercion(std::vector<int> vectorOrdenar) {
+template<class Clave>
+Insercion<Clave>::Insercion() {
+  //creacion();
+}
+
+template<class Clave>
+Insercion<Clave>::~Insercion() {}
+
+template<class Clave>
+void Insercion<Clave>::creacion(std::vector<Clave> vectorOrdenar) {
   cout << "Ordenamos por Inserción." << endl;
   printVector(vectorOrdenar, -1);
-  int valor = 0;
+  Clave valor;
   for (int pos = 1; pos < vectorOrdenar.size(); pos++) {
     valor = vectorOrdenar[pos];
     insertar(vectorOrdenar, pos, valor);
@@ -49,9 +58,8 @@ Insercion::Insercion(std::vector<int> vectorOrdenar) {
   printVector(vectorOrdenar, vectorOrdenar.size());
 }
 
-Insercion::~Insercion() {}
-
-void Insercion::printVector(vector<int> vector, int posOrdenado) {
+template<class Clave>
+void Insercion<Clave>::printVector(vector<Clave> vector, int posOrdenado) {
   for (int  i = 0; i <= posOrdenado; i++) {
     cout << GREEN << vector[i] << " " << RESET;
   }
@@ -66,7 +74,8 @@ void Insercion::printVector(vector<int> vector, int posOrdenado) {
   cout << endl;
 }
 
-void Insercion::insertar(vector<int> &sec, int &pos, int &valor) {
+template<class Clave>
+void Insercion<Clave>::insertar(vector<Clave> &sec, int &pos, int &valor) {
   int posicionIntroducir = 0;
   while (valor > sec[posicionIntroducir]) {
     posicionIntroducir++;
@@ -82,3 +91,4 @@ void Insercion::insertar(vector<int> &sec, int &pos, int &valor) {
   printVector(sec, pos);
 }
 
+template class Insercion<int>;

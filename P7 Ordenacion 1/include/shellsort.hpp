@@ -24,15 +24,17 @@
 
 using namespace std;
 
+template<class Clave>
 class Shellsort {
   private:
 
   public:
-  Shellsort(vector<int> vectorOrdenar);
+  Shellsort();
   ~Shellsort();
 
-  void printVector(vector<int> vector);
-  void printVector(vector<int> vector, int pos1, int pos2);
-  void printVector(vector<int> vector, int pos1, int pos2, int pos3);
-  void deltasort(vector<int> &sec, int &delta, int &tamanoVector);
+  void creacion(vector<Clave> vectorOrdenar);
+  void printVector(vector<Clave> vector);
+  void printVector(vector<Clave> vector, int pos1, int pos2);
+  void printVector(vector<Clave> vector, int pos1, int pos2, int pos3);
+  void deltasort(vector<Clave> &sec, int &delta, int &tamanoVector);
 };

@@ -24,13 +24,15 @@
 
 using namespace std;
 
+template<class Clave>
 class Insercion {
   private:
 
   public:
-  Insercion(std::vector<int> vectorOrdenar);
+  Insercion();
   ~Insercion();
 
-  void printVector(vector<int> vector, int posOrdenado);
-  void insertar(vector<int> &sec, int &i, int &valor);
+  void creacion(std::vector<Clave> vectorOrdenar);
+  void printVector(vector<Clave> vector, int posOrdenado);
+  void insertar(vector<Clave> &sec, int &i, int &valor);
 };

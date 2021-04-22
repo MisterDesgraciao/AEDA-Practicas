@@ -24,14 +24,16 @@
 
 using namespace std;
 
+template<class Clave>
 class Quicksort {
   private:
 
   public:
-  Quicksort(vector<int> vectorOrdenar);
+  Quicksort();
   ~Quicksort();
 
-  void printVector(vector<int> vector);
-  void printVector(vector<int> vector, int pos1, int pos2);
-  void AlgoritmoQuicksort(vector<int> &sec, int inicio, int final);
+  void creacion(vector<Clave> vectorOrdenar);
+  void printVector(vector<Clave> vector);
+  void printVector(vector<Clave> vector, int pos1, int pos2);
+  void AlgoritmoQuicksort(vector<Clave> &sec, int inicio, int final);
 };

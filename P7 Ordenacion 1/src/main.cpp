@@ -35,14 +35,15 @@ void printVector(vector<int> vector) {
   cout << endl;
 }
 
-int main() {
-  vector<int> vectorOrdenar; //= {10, 9, 82, 17, 22, 20, 21, 13, 2};
+template<class Clave>
+void programa() {
+  vector<Clave> vectorOrdenar; //= {10, 9, 82, 17, 22, 20, 21, 13, 2};
   int tamanoVector, opcion = 0;
   cout << "Introduzca el tamaño del vector: ";
   cin >> tamanoVector;
   cout << "¿Quiere que sea aleatorio [1] o introducir los valores[2]?";
   cin >> opcion;
-  int aux = 0;
+  Clave aux;
   while (vectorOrdenar.size() < tamanoVector) {
     if (opcion == 1) {
       aux = rand() % 1000 + 1;
@@ -57,12 +58,19 @@ int main() {
   cout << "Elija el algoritmo a usar para ordenar el vector:\n1.Inserción.\n2.Quicksort.\n3.Shellsort." << endl;
   cin >> eleccion;
   if (eleccion == 1) {
-    Insercion algoritmo(vectorOrdenar);
+    Insercion<Clave> algoritmo;
+    algoritmo.creacion(vectorOrdenar);
   } else if (eleccion == 2) {
-    Quicksort algoritmo(vectorOrdenar);
+    Quicksort<Clave> algoritmo;
+    algoritmo.creacion(vectorOrdenar);
   } else if (eleccion == 3) {
-    Shellsort algoritmo(vectorOrdenar);
+    Shellsort<Clave> algoritmo;
+    algoritmo.creacion(vectorOrdenar);
   } else {
     cout << "Opción no soportada." << endl;
   }
+}
+
+int main() {
+  programa<int>();
 }
